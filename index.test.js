@@ -4,14 +4,6 @@ const { execSync } = require("child_process");
 
 jest.setTimeout(60000);
 
-const keypress = async () => {
-  process.stdin.setRawMode(true)
-  return new Promise(resolve => process.stdin.once('data', () => {
-    process.stdin.setRawMode(false)
-    resolve()
-  }))
-}
-
 function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
@@ -33,6 +25,4 @@ it('Should start and stop DynamoDB Local', async () => {
 
   console.log('Containers after stop');
   console.log(execSync('docker container ls').toString());
-
-
 });
