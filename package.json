@@ -1,0 +1,17 @@
+{
+  "name": "dynamodb-local-stop",
+  "version": "1.0.0",
+  "description": "Testing dynamodb local stop",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "dynamo-db-local": "^5.0.1"
+  }
+}
