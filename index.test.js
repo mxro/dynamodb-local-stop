@@ -20,7 +20,11 @@ it('Should start and stop DynamoDB Local', async () => {
 
   await sleep(10000);
 
-  dynamoDbLocalProcess.kill();
+  await new Promise((resolve) => {
+    dynamoDbLocalProcess.stdout.once('end', () => resolve());
+    dynamoDbLocalProcess.kill();
+  });
+
   console.log('DynamoDB Local process stopped');
 
   console.log('Containers after stop');
