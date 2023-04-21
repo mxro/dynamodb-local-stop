@@ -20,6 +20,9 @@ it('Should start and stop DynamoDB Local', async () => {
 
   await sleep(10000);
 
+  console.log('Containers after start');
+  console.log(execSync('docker container ls').toString());
+
   await new Promise((resolve) => {
     dynamoDbLocalProcess.stdout.once('end', () => resolve());
     dynamoDbLocalProcess.kill();
