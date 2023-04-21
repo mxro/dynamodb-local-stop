@@ -2,7 +2,7 @@
 const dynamoDbLocal = require('dynamo-db-local');
 const { execSync } = require("child_process");
 
-jest.setTimeout(60000);
+jest.setTimeout(120000);
 
 function sleep(ms) {
   return new Promise((resolve) => {
@@ -18,7 +18,7 @@ it('Should start and stop DynamoDB Local', async () => {
   const dynamoDbLocalProcess = dynamoDbLocal.spawn({command: 'docker', path: null});
   console.log('DynamoDB Local process started. Waiting for Docker container to spin up ...');
 
-  await sleep(10000);
+  await sleep(60000);
 
   console.log('Containers after start');
   console.log(execSync('docker container ls').toString());
