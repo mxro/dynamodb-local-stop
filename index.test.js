@@ -15,7 +15,7 @@ it('Should start and stop DynamoDB Local', async () => {
   console.log('Containers before start');
   console.log(execSync('docker container ls').toString());
   
-  const dynamoDbLocalProcess = dynamoDbLocal.spawn({command: 'docker', path: null});
+  const dynamoDbLocalProcess = dynamoDbLocal.spawn({command: 'docker', path: null, detached: true });
   console.log('DynamoDB Local process started. Waiting for Docker container to spin up ...');
 
   await sleep(30000);
